@@ -1,0 +1,14 @@
+name: Daily Biotech Update
+on:
+  schedule:
+    - cron: '0 0 * * *' # በየቀኑ እኩለ ሌሊት ላይ ይነሳል
+  workflow_dispatch: # በእጅህም ማስነሳት እንድትችል
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run research script
+        run: python main.py
